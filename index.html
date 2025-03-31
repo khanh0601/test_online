@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite + jQuery + SCSS</title>
+</head>
+<body>
+  <section class="todo">
+    <div class="container">
+      <h1 class="heading h1 todo-title">My To-Do List</h1>
+      <div class="todo-add-wrap">
+        <input type="text"  placeholder="Enter a task" class="todo-add-input" required>
+        <button class="btn btn-primary todo-add-submit"><span class="txt txt-16">Add Task</span></button>
+      </div>
+      <div class="todo-filter">
+        <button class="btn btn-outline todo-filter-btn active" data-filter="all"><span class="txt txt-16">All</span></button>
+        <button class="btn btn-outline todo-filter-btn" data-filter="active"><span class="txt txt-16">Active</span></button>
+        <button class="btn btn-outline todo-filter-btn" data-filter="completed"><span class="txt txt-16">Completed</span></button>
+      </div>
+      <ul id="task-list" class="todo-list">
+        
+      </ul>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

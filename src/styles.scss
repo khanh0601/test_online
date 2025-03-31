@@ -1,0 +1,248 @@
+
+$primary-color: #FF5733;
+$primary-dark-color: #D4482A;
+$bg-color: #f4f4f4;
+$cl-danger: #EE2C12;
+$cl-black: rgba(29, 29, 29, 1);
+$cl-black-20: rgba(29, 29, 29, 0.20);
+$cl-white: #FFFFFF;
+$cl-green: #3AAF3C;
+$tablet-and-below: "(max-width: 991px)";
+$only-mobile: "(max-width: 767px)";
+body {
+  background: $bg-color;
+  min-height: 100vh;
+  color: $cl-black;
+  font-family: "Poppin";
+}
+html {
+  font-kerning: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.5787037037vw;
+  vertical-align: baseline;
+
+  @media screen and (min-width: 1728px) {
+    font-size: 10px;
+  }
+
+  @media #{$tablet-and-below} {
+    font-size: 1.1990407674vw;
+  }
+
+  @media #{$only-mobile} {
+    font-size: 2.5445292621vw;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url('./fonts/Poppins-Regular.woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url('./fonts/Poppins-Medium.woff2');
+  font-weight: 500;
+}
+.txt{
+  margin-block: 0;
+}
+.txt-16{
+  font-size: 1.6rem;
+  line-height: 1.4em;
+}
+.txt-18{
+  font-size: 1.8rem;
+  line-height: 1.4em;
+}
+.txt-20{
+  font-size: 2rem;
+  line-height: 1.3em;
+}
+.txt-24{
+  font-size: 2.4rem;
+  line-height: 1.2em;
+}
+.txt-med{
+  font-weight: 500;
+}
+.heading{
+  font-weight: 500;
+}
+.h1{
+  font-size: 5.4rem;
+  line-height: 1.2em;
+}
+.container{
+  max-width: 1728px;
+  padding-inline: 8rem;
+  @media #{$tablet-and-below} {
+    padding-inline: 4rem;
+   }
+  @media #{$only-mobile} {
+   padding-inline: 2rem;
+  }
+}
+.btn{
+  padding: 1.6rem 2.4rem;
+  border: 1px solid transparent;
+  transition: border-color ease .6s, background-color ease .6s;
+  border-radius:1rem;
+  cursor: pointer;
+  @media #{$only-mobile} {
+    padding: 1.2rem 1.6rem;
+  }
+}
+.btn-outline{
+  border-color: $cl-black-20;
+}
+.btn-primary{
+  background-color: $primary-color;
+  &:hover {
+    background-color: $primary-dark-color;
+  }
+  .txt{
+    color: $cl-white;
+  }
+}
+.btn .txt{
+line-height: 1em;
+}
+.todo{
+  padding-block: 8rem;
+  &-title{
+    margin-bottom: 6rem;
+    text-align: center;
+  }
+  &-add{
+    &-wrap{
+      max-width: 100rem;
+      margin-inline: auto;
+      display: flex;
+      column-gap: 2.4rem;
+      @media #{$only-mobile} {
+        column-gap: 1.2rem ;
+      }
+    }
+    &-input{
+      flex: 1;
+      width: 100%;
+      padding-inline: 2rem;
+      border-radius: 1rem;
+      border: 1px solid $cl-black-20;
+      font-size: 2rem;
+      line-height: 1em;
+      transition: border-color .4s ease;
+      &:focus-visible, &:hover{
+        outline: none;
+        border-color: $primary-color;
+      }
+      
+    }
+    &-submit{
+      flex: none;
+    }
+  }
+  &-filter{
+    display: flex;
+    justify-content: center;
+    column-gap: 2.4rem;
+    margin-top: 4rem;
+    @media #{$only-mobile} {
+      // flex-direction: column;
+      justify-content: space-between;
+      column-gap: .4rem;
+     }
+    &-btn{
+      min-width: 11.4rem;
+      @media #{$only-mobile} {
+        min-width: none;
+        flex: 1;
+      }
+      .txt{
+        transition: .4s ease color;
+      }
+      &:hover, &.active{
+        background-color: $primary-dark-color;
+        border-color: $primary-dark-color;
+        .txt{
+          color: $cl-white !important;
+        }
+      }
+    }
+  }
+  &-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    max-width: 100rem;
+    margin-inline:  auto;
+    margin-top: 4rem;
+    &-item{
+      font-size: 2rem;
+      line-height: 1.4em;
+      display: flex;
+      column-gap: 1.6rem;
+      align-items: center;
+      position: relative;
+      padding-left: 2rem;
+      transition: color ease  .4s;
+      @media #{$only-mobile} {
+          column-gap: 1rem;
+          .txt{
+            font-size: 1.6rem;
+          }
+      }
+      .txt {
+        position: relative;
+      }
+      &.completed{
+        color: $cl-black-20;
+        text-decoration: line-through;
+        .todo-list-item-complete{
+          color: $cl-black-20;
+          pointer-events: none;
+        }
+      }
+      &::before{
+        content: "";
+        position: absolute;
+        width: .8rem;
+        height: .8rem;
+        background-color: $cl-black;
+        border-radius: 50%;
+        top: .8rem;
+        left: 0;
+        @media #{$only-mobile} {
+          width: .6rem;
+          height: .6rem;
+        }
+      }
+      &-complete, &-delete{
+        cursor: pointer;
+        width: 2.4rem;
+        display: flex;
+        border: none;
+        transition: all ease .4s;
+        flex: none;
+        @media #{$only-mobile} {
+          width: 2rem;
+        }
+      }
+      &-complete{
+        &:hover{
+          color: $cl-green ;
+        }
+      }
+      &-delete{
+        &:hover{
+          color: $cl-danger ;
+        }
+      }
+    }
+  }
+}
